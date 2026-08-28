@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Didi ❤️ | Happy Raksha Bandhan</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Georgia,"Times New Roman",serif;
+    background:
+      radial-gradient(circle at 20% 10%,rgba(255,255,255,.8),transparent 25%),
+      linear-gradient(180deg,#fff3f7,#ffe2ec,#fff5f8);
+    color:#7d2948;
+    overflow-x:hidden;
+}
+
+button{
+    font-family:inherit;
+}
+
+.page{
+    width:100%;
+    min-height:100vh;
+    display:none;
+    padding:35px 18px 70px;
+    position:relative;
+}
+
+.page.active{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.container{
+    width:100%;
+    max-width:760px;
+    text-align:center;
+}
+
+/* floating hearts */
+
+.float{
+    position:fixed;
+    bottom:-40px;
+    font-size:22px;
+    pointer-events:none;
+    animation:floatUp 7s linear infinite;
+    opacity:.65;
+    z-index:1;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+    15%{
+        opacity:.7;
+    }
+    to{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* intro */
+
+.badge{
+    display:inline-block;
+    background:rgba(255,255,255,.75);
+    padding:9px 17px;
+    border-radius:30px;
+    font-size:12px;
+    letter-spacing:3px;
+    margin-bottom:25px;
+    box-shadow:0 8px 25px rgba(160,40,90,.08);
+}
+
+h1{
+    font-size:clamp(34px,9vw,62px);
+    line-height:1.1;
+    margin-bottom:16px;
+    color:#9d3159;
+}
+
+h2{
+    font-size:clamp(28px,7vw,46px);
+    line-height:1.15;
+    margin-bottom:14px;
+    color:#9d3159;
+}
+
+.subtitle{
+    color:#a8647d;
+    font-size:16px;
+    line-height:1.7;
+    max-width:580px;
+    margin:auto;
+}
+
+.main-heart{
+    width:130px;
+    height:130px;
+    background:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:35px auto;
+    font-size:70px;
+    box-shadow:
+      0 15px 45px rgba(184,48,94,.18),
+      inset 0 0 30px rgba(255,150,190,.15);
+    animation:heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.08)}
+}
+
+/* buttons */
+
+.btn{
+    border:none;
+    padding:15px 28px;
+    border-radius:35px;
+    background:linear-gradient(135deg,#b72e62,#d44b78);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(170,35,85,.22);
+    transition:.25s;
+    margin:8px;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn:active{
+    transform:scale(.96);
+}
+
+.btn.light{
+    background:white;
+    color:#a9365c;
+}
+
+/* music */
+
+.music{
+    position:fixed;
+    top:18px;
+    right:18px;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:none;
+    background:white;
+    box-shadow:0 8px 25px rgba(100,20,50,.15);
+    font-size:22px;
+    cursor:pointer;
+    z-index:100;
+}
+
+/* progress */
+
+.progress{
+    width:100%;
+    max-width:500px;
+    height:6px;
+    background:rgba(150,50,90,.1);
+    border-radius:20px;
+    margin:0 auto 35px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    width:0%;
+    height:100%;
+    background:#c23b68;
+    transition:.5s;
+}
+
+/* memory */
+
+.memory-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin:30px 0;
+}
+
+.memory{
+    background:white;
+    padding:10px;
+    border-radius:20px;
+    box-shadow:0 12px 35px rgba(150,40,80,.12);
+    overflow:hidden;
+}
+
+.memory img{
+    width:100%;
+    aspect-ratio:1/1.15;
+    object-fit:cover;
+    border-radius:14px;
+    display:block;
+}
+
+.memory p{
+    padding:12px 5px 5px;
+    font-size:13px;
+    color:#a96a7e;
+}
+
+/* cards */
+
+.card{
+    background:rgba(255,255,255,.86);
+    border-radius:25px;
+    padding:28px 22px;
+    box-shadow:0 15px 45px rgba(150,35,80,.1);
+    margin:25px 0;
+}
+
+.question{
+    font-size:21px;
+    line-height:1.5;
+    margin-bottom:22px;
+}
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.option{
+    border:1px solid #f2c4d3;
+    background:#fff5f8;
+    color:#8e3856;
+    padding:14px;
+    border-radius:15px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.2s;
+}
+
+.option:hover{
+    background:#ffe4ed;
+}
+
+.option.correct{
+    background:#dff8e9;
+    border-color:#79c99b;
+}
+
+.option.wrong{
+    background:#ffe0e0;
+    border-color:#ed9292;
+}
+
+/* rakhi */
+
+.rakhi-area{
+    position:relative;
+    height:260px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.thread{
+    width:100%;
+    height:10px;
+    background:#e7a33a;
+    position:absolute;
+    left:0;
+    border-radius:10px;
+}
+
+.rakhi{
+    width:115px;
+    height:115px;
+    border-radius:50%;
+    background:
+      radial-gradient(circle,#fff 0 12%,#e84677 13% 27%,#ffd15b 28% 43%,#b92e5e 44% 58%,#e6a22f 59% 100%);
+    border:8px solid #e8b03f;
+    box-shadow:0 8px 25px rgba(130,70,20,.3);
+    z-index:2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    transition:1.2s;
+}
+
+.rakhi.tied{
+    transform:scale(1.2) rotate(720deg);
+}
+
+/* letter */
+
+.letter{
+    background:#fffdf7;
+    padding:35px 25px;
+    text-align:left;
+    border:1px solid #ecdcc8;
+    box-shadow:0 10px 35px rgba(80,30,30,.08);
+    line-height:2;
+    font-family:Georgia,serif;
+    position:relative;
+}
+
+.letter:before{
+    content:"🌸";
+    position:absolute;
+    top:12px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.letter h3{
+    margin-top:18px;
+    margin-bottom:18px;
+    color:#a33359;
+    font-size:25px;
+}
+
+.letter p{
+    margin-bottom:18px;
+}
+
+/* secret */
+
+.lock{
+    font-size:75px;
+    margin:15px;
+}
+
+.secret{
+    display:none;
+}
+
+.secret.show{
+    display:block;
+    animation:appear .8s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* final */
+
+.final-heart{
+    font-size:80px;
+    animation:heartbeat 1.5s infinite;
+    margin:20px;
+}
+
+.quote{
+    font-size:20px;
+    line-height:1.8;
+    color:#87304f;
+    margin:25px auto;
+    max-width:600px;
+}
+
+.small{
+    font-size:13px;
+    color:#ad7185;
+    margin-top:18px;
+}
+
+/* confetti */
+
+.confetti{
+    position:fixed;
+    width:8px;
+    height:14px;
+    top:-20px;
+    z-index:999;
+    animation:confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
+}
+
+/* responsive */
+
+@media(max-width:520px){
+
+    .page{
+        padding:28px 15px 60px;
+    }
+
+    .memory-grid{
+        gap:10px;
+    }
+
+    .memory{
+        padding:7px;
+        border-radius:16px;
+    }
+
+    .memory img{
+        border-radius:11px;
+    }
+
+    .card{
+        padding:23px 16px;
+    }
+
+    .letter{
+        padding:30px 18px;
+    }
+
+    .question{
+        font-size:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+
+<audio id="music" loop preload="auto">
+    <source src="assets/rakhi-music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music" onclick="toggleMusic()" id="musicBtn">🎵</button>
+
+
+<!-- PAGE 1 -->
+
+<section class="page active" id="page1">
+<div class="container">
+
+    <div class="badge">A LITTLE SURPRISE FOR YOU 💗</div>
+
+    <div class="main-heart">❤️</div>
+
+    <h1>Happy Raksha Bandhan,<br>Didi ❤️</h1>
+
+    <p class="subtitle">
+        I made something special for the most special sister in my life.
+        <br>
+        This little website is filled with our memories,
+        my words and a tiny surprise for you.
+    </p>
+
+    <br>
+
+    <button class="btn" onclick="startExperience()">
+        Open Your Surprise 🎁
+    </button>
+
+    <p class="small">
+        Put your headphones on 🎧
+    </p>
+
+</div>
+</section>
+
+
+<!-- PAGE 2 MEMORY -->
+
+<section class="page" id="page2">
+<div class="container">
+
+    <div class="badge">OUR MEMORIES 📸</div>
+
+    <h2>Little Moments,<br>Big Memories</h2>
+
+    <p class="subtitle">
+        Every picture has a story.
+        And every story has a special place in my heart.
+    </p>
+
+    <div class="memory-grid">
+
+        <div class="memory">
+            <img src="assets/didi1.jpg" alt="Memory 1">
+            <p>A beautiful memory ❤️</p>
+        </div>
+
+        <div class="memory">
+            <img src="assets/didi2.jpg" alt="Memory 2">
+            <p>My favourite smile 🌸</p>
+        </div>
+
+        <div class="memory">
+            <img src="assets/memory1.jpg" alt="Memory 3">
+            <p>Another beautiful moment ✨</p>
+        </div>
+
+        <div class="memory">
+            <img src="assets/memory2.jpg" alt="Memory 4">
+            <p>Forever a special memory 💕</p>
+        </div>
+
+    </div>
+
+    <button class="btn" onclick="nextPage(3)">
+        Continue 💗
+    </button>
+
+</div>
+</section>
+
+
+<!-- PAGE 3 QUIZ -->
+
+<section class="page" id="page3">
+<div class="container">
+
+    <div class="badge">SIBLING TEST 😜</div>
+
+    <h2>How Well Do You<br>Know Your Brother?</h2>
+
+    <div class="progress">
+        <div class="progress-bar" id="progress"></div>
+    </div>
+
+    <div class="card">
+
+        <div class="question" id="question">
+            Loading question...
+        </div>
+
+        <div class="options" id="options"></div>
+
+    </div>
+
+    <p class="small" id="scoreText"></p>
+
+</div>
+</section>
+
+
+<!-- PAGE 4 RAKHI -->
+
+<section class="page" id="page4">
+<div class="container">
+
+    <div class="badge">THE SPECIAL MOMENT 🎀</div>
+
+    <h2>One More Thing... 🎀</h2>
+
+    <p class="subtitle">
+        Since I can't tie a Rakhi on your wrist through a screen,
+        let's make our own little virtual moment.
+    </p>
+
+    <div class="rakhi-area">
+
+        <div class="thread"></div>
+
+        <div class="rakhi" id="rakhi">
+            🌸
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h3 id="rakhiTitle">
+            Tie This Virtual Rakhi
+        </h3>
+
+        <p id="rakhiText" class="small">
+            Click the button below.
+        </p>
+
+    </div>
+
+    <button class="btn" id="tieBtn" onclick="tieRakhi()">
+        Tie Rakhi 🎀
+    </button>
+
+</div>
+</section>
+
+
+<!-- PAGE 5 LETTER -->
+
+<section class="page" id="page5">
+<div class="container">
+
+    <div class="badge">FROM MY HEART 💌</div>
+
+    <h2>A Letter For You</h2>
+
+    <div class="letter">
+
+        <h3>Dear Didi,</h3>
+
+        <p>
+            Today is Raksha Bandhan, but for me this day is
+            much more than just a festival.
+        </p>
+
+        <p>
+            You are one of the most important people in my life.
+            We may fight, argue, annoy each other and sometimes
+            not even agree on the smallest things...
+        </p>
+
+        <p>
+            But behind all those little fights is a bond that
+            I never want to lose.
+        </p>
+
+        <p>
+            Thank you for all the memories, all the laughter,
+            all the scolding, all the support and all the little
+            moments that made growing up so special.
+        </p>
+
+        <p>
+            I may not always say it,
+            but I am really lucky to have a sister like you.
+        </p>
+
+        <p>
+            No matter how much we grow up,
+            you will always be my Didi.
+        </p>
+
+        <p>
+            Happy Raksha Bandhan! ❤️
+        </p>
+
+        <p>
+            Always stay happy,
+            always keep smiling,
+            and never forget that your brother is always
+            there for you.
+        </p>
+
+        <p style="text-align:right;">
+            With lots of love,<br>
+            <b>Your Brother ❤️</b>
+        </p>
+
+    </div>
+
+    <button class="btn" onclick="nextPage(6)">
+        One Last Surprise 🔐
+    </button>
+
+</div>
+</section>
+
+
+<!-- PAGE 6 SECRET -->
+
+<section class="page" id="page6">
+<div class="container">
+
+    <div class="badge">PRIVATE MESSAGE 🔐</div>
+
+    <div class="lock" id="lock">
+        🔐
+    </div>
+
+    <h2>I Have One Secret...</h2>
+
+    <p class="subtitle">
+        Only Didi can unlock this.
+        <br>
+        Hint: What do I call you?
+    </p>
+
+    <div class="card">
+
+        <input
+            id="secretInput"
+            type="text"
+            placeholder="Type your answer..."
+            style="
+              width:100%;
+              padding:15px;
+              border:1px solid #efc1d0;
+              border-radius:15px;
+              outline:none;
+              font-size:16px;
+              text-align:center;
+              background:#fff8fa;
+            "
+        >
+
+        <br><br>
+
+        <button class="btn" onclick="unlockSecret()">
+            Unlock ❤️
+        </button>
+
+        <p id="wrong" class="small"></p>
+
+    </div>
+
+    <div class="secret" id="secret">
+
+        <div class="card">
+
+            <div style="font-size:55px;">❤️</div>
+
+            <h2>You Found It!</h2>
+
+            <p class="quote">
+                My secret is simple...
+                <br><br>
+                No matter how much we grow up,
+                I will always need my Didi.
+                🥹❤️
+            </p>
+
+            <p>
+                You are irreplaceable.
+            </p>
+
+        </div>
+
+        <button class="btn" onclick="finish()">
+            Finish The Surprise 🎉
+        </button>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- PAGE 7 FINAL -->
+
+<section class="page" id="page7">
+<div class="container">
+
+    <div class="final-heart">❤️</div>
+
+    <h1>Happy Raksha Bandhan</h1>
+
+    <h2>My Dear Didi 🌸</h2>
+
+    <p class="quote">
+        Some people are given to us by life.
+        <br>
+        A sister is given to us by destiny.
+        <br><br>
+        And I am grateful that destiny gave me you.
+    </p>
+
+    <div class="card">
+
+        <p style="font-size:21px;line-height:1.8;">
+            Whatever happens,
+            wherever life takes us,
+            one thing will never change...
+            <br><br>
+            <b>You will always be my Didi. ❤️</b>
+        </p>
+
+    </div>
+
+    <p class="small">
+        Made with ❤️ by your brother
+    </p>
+
+</div>
+</section>
+
+
+<script>
+
+let currentPage = 1;
+let musicStarted = false;
+
+
+/* MUSIC */
+
+function toggleMusic(){
+
+    const music = document.getElementById("music");
+    const btn = document.getElementById("musicBtn");
+
+    if(music.paused){
+
+        music.play().catch(()=>{});
+
+        btn.innerHTML = "🔊";
+        musicStarted = true;
+
+    }else{
+
+        music.pause();
+        btn.innerHTML = "🎵";
+
+    }
+}
+
+
+/* START */
+
+function startExperience(){
+
+    const music = document.getElementById("music");
+
+    music.play().catch(()=>{});
+
+    document.getElementById("musicBtn").innerHTML="🔊";
+
+    musicStarted=true;
+
+    nextPage(2);
+}
+
+
+/* PAGE NAVIGATION */
+
+function nextPage(number){
+
+    document.querySelectorAll(".page").forEach(page=>{
+        page.classList.remove("active");
+    });
+
+    const page=document.getElementById("page"+number);
+
+    if(page){
+        page.classList.add("active");
+        currentPage=number;
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+    }
+
+    if(number===3){
+        loadQuestion();
+    }
+
+    if(number===4){
+        document.getElementById("rakhi").classList.remove("tied");
+        document.getElementById("tieBtn").style.display="inline-block";
+    }
+}
+
+
+/* QUIZ */
+
+const questions=[
+
+{
+    q:"What does a brother and sister usually do?",
+    options:[
+        "Only study",
+        "Fight and then laugh 😂",
+        "Never talk",
+        "Sleep all day"
+    ],
+    answer:1
+},
+
+{
+    q:"Who usually knows all your embarrassing secrets?",
+    options:[
+        "Your teacher",
+        "Your neighbour",
+        "Your sibling 😜",
+        "The internet"
+    ],
+    answer:2
+},
+
+{
+    q:"What is a sister most likely to do?",
+    options:[
+        "Give advice",
+        "Scold you",
+        "Protect you",
+        "All of these ❤️"
+    ],
+    answer:3
+},
+
+{
+    q:"What makes sibling memories special?",
+    options:[
+        "Perfect moments",
+        "Expensive gifts",
+        "Little everyday moments",
+        "Nothing"
+    ],
+    answer:2
+},
+
+{
+    q:"Who will always be your Didi?",
+    options:[
+        "A random person",
+        "My beautiful sister ❤️",
+        "Nobody",
+        "Google"
+    ],
+    answer:1
+}
+
+];
+
+let questionIndex=0;
+let score=0;
+
+
+function loadQuestion(){
+
+    if(questionIndex>=questions.length){
+
+        document.getElementById("question").innerHTML=
+        "Quiz Complete! 🎉";
+
+        document.getElementById("options").innerHTML=
+        "<button class='btn' onclick='nextPage(4)'>See The Special Moment 🎀</button>";
+
+        document.getElementById("scoreText").innerHTML=
+        "Your score: "+score+" / "+questions.length+" ❤️";
+
+        return;
+    }
+
+    const data=questions[questionIndex];
+
+    document.getElementById("question").innerHTML=
+        "Question "+(questionIndex+1)+" of "+questions.length+
+        "<br><br>"+data.q;
+
+    const options=document.getElementById("options");
+
+    options.innerHTML="";
+
+    data.options.forEach((option,index)=>{
+
+        const btn=document.createElement("button");
+
+        btn.className="option";
+        btn.innerText=option;
+
+        btn.onclick=()=>answer(index,btn);
+
+        options.appendChild(btn);
+
+    });
+
+    document.getElementById("progress").style.width=
+        ((questionIndex)/questions.length*100)+"%";
+}
+
+
+function answer(selected,button){
+
+    const correct=questions[questionIndex].answer;
+
+    document.querySelectorAll(".option").forEach(btn=>{
+        btn.disabled=true;
+    });
+
+    if(selected===correct){
+
+        button.classList.add("correct");
+        score++;
+
+    }else{
+
+        button.classList.add("wrong");
+
+        document.querySelectorAll(".option")[correct]
+        .classList.add("correct");
+
+    }
+
+    setTimeout(()=>{
+
+        questionIndex++;
+
+        loadQuestion();
+
+    },900);
+}
+
+
+/* RAKHI */
+
+function tieRakhi(){
+
+    const rakhi=document.getElementById("rakhi");
+
+    rakhi.classList.add("tied");
+
+    document.getElementById("rakhiTitle").innerHTML=
+        "Rakhi tied successfully! ❤️";
+
+    document.getElementById("rakhiText").innerHTML=
+        "I promise to always respect you, support you, protect you and annoy you forever. 😂❤️";
+
+    document.getElementById("tieBtn").innerHTML=
+        "Read My Heart 💌";
+
+    document.getElementById("tieBtn").onclick=function(){
+
+        createConfetti();
+
+        setTimeout(()=>{
+            nextPage(5);
+        },700);
+
+    };
+
+    createConfetti();
+
+}
+
+
+/* SECRET */
+
+function unlockSecret(){
+
+    const value=
+        document.getElementById("secretInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+    /*
+       Change these answers if you want.
+    */
+
+    const answers=[
+        "didi",
+        "di",
+        "sister",
+        "apu",
+        "bon"
+    ];
+
+    if(answers.includes(value)){
+
+        document.getElementById("lock").innerHTML="🔓";
+
+        document.getElementById("wrong").innerHTML=
+            "Unlocked! ❤️";
+
+        document.getElementById("secret")
+        .classList.add("show");
+
+        createConfetti();
+
+    }else{
+
+        document.getElementById("wrong").innerHTML=
+            "Hmm... Try again, Didi 😜❤️";
+
+    }
+}
+
+
+/* FINAL */
+
+function finish(){
+
+    createConfetti();
+
+    setTimeout(()=>{
+        nextPage(7);
+    },400);
+
+}
+
+
+/* CONFETTI */
+
+function createConfetti(){
+
+    const symbols=["❤️","💗","🌸","✨","🎀","💕","🌷"];
+
+    for(let i=0;i<70;i++){
+
+        const c=document.createElement("div");
+
+        c.className="confetti";
+
+        c.innerHTML=
+            symbols[Math.floor(Math.random()*symbols.length)];
+
+        c.style.left=
+            Math.random()*100+"vw";
+
+        c.style.animationDuration=
+            (2+Math.random()*3)+"s";
+
+        c.style.fontSize=
+            (10+Math.random()*18)+"px";
+
+        document.body.appendChild(c);
+
+        setTimeout(()=>{
+            c.remove();
+        },5000);
+
+    }
+
+}
+
+
+/* FLOATING HEARTS */
+
+function createFloating(){
+
+    const symbols=["✨","❣️","❤️","🎁","💞"];
+
+setInterval(()=>{
+
+const f=document.createElement("div");
+
+f.className="float";
+
+f.innerHTML=
+
+symbols[Math.floor(Math.random()*symbols.length)];
+
+f.style.left= Math.random()*100+"vw";
+
+f.style.animationDuration= (5+Math.random()*5)+"s";
+
+f.style.fontSize= (15+Math.random()*18)+"px";
+
+document.body.appendChild(f);
+
+setTimeout(()=>{
+
+f.remove();
+
+},10000);
+
+},800);
+
+}
+
+createFloating();
+
+</script>
+
+</body>
+
+</html>
